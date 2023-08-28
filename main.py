@@ -13,10 +13,12 @@ def main():
     if choice == "Main":
         st.markdown('<div style="text-align: center;"><h1><em>--- Data Analytics Quiz ---</em></h1></div>', unsafe_allow_html=True)
         a01, a02, a03 = st.columns (3)
+        with a02:
+            st.write("By: Muhammad Dimas Abdul Aziz Cakradewa")
         with a03: 
             st.image("./logo_70.jpeg")
         st.write("   ")
-        st.subheader("Inhalte:")
+        # st.subheader("Inhalte:")
         # a11,a12 = st.columns(2)
         # with a11:
     elif choice == "Data Types Quiz":

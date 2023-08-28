@@ -13,9 +13,7 @@ def vis_q():
     st.write("4. Verhältnis- und andere kontinuierliche Variablen werden oft an der y-Achse beschrieben.")
     st.write("5. Falls Sie Error-Message bekommen, versuchen Sie, die Werte an den Achsen zu ändern.")
     st.write("6. Falls das Diagramm nicht richtig angezeigt wird, aktivieren Sie die Taste 'Group by this Axis'.")
-
-    st.write(" ")
-    st.write(" ")
+    st.write("_____")
     st.write("A1) Öffnen Sie den Covid-Datensatz (covid.csv)")
     st.write("A2) Zeigen Sie Num. of Case per Country")
     st.write("A3) Zeigen Sie Num. of Case over time (date)")
@@ -24,10 +22,17 @@ def vis_q():
     st.write(" ")
     st.write(" ")
     st.write("B1) Öffnen Sie den Superstore-Datensatz (superstore.csv)")
-    st.write("B2) Zeigen Sie Num. of Case per Country")
-    st.write("B3) Zeigen Sie Num. of Case over time (date)")
-    st.write("B4) Zeigen Sie Num. of Case over time (month)")
-    st.write("B5) Zeigen Sie Num. of Case over time (year)")
+    st.write("B2) Zeigen Sie die Profit & Sales für jeden Customer")
+    st.write("B3) Zeigen Sie die Profit & Sales für jedes Land")
+    st.write("B4) Zeigen Sie die Anzahl der Transaktion für jedes Ship Mode")
+    st.write("B5) Zeigen Sie die Anzahl der Transaktion für jedes Land")
+    st.write(" ")
+    st.write(" ")
+    st.write("C1) Öffnen Sie den Superstore-Datensatz (auto_mpg.csv)")
+    st.write("C2) Zeigen Sie den Durchschnitt der MPG & Horsepower für jedes Model Year")
+    st.write("C3) Zeigen Sie den Durchschnitt der MPG & Horsepower für jede Zylinderklasse")
+    st.write("C4) Zeigen Sie den Durchschnitt der MPG & Horsepower für jede Automarke")
+    
 
     st.write("_____")
     files = ["covid.csv","superstore.csv","auto_mpg.csv","netflix_titles.csv"]
@@ -54,7 +59,7 @@ def vis_q():
     with c2:
         colx = st.selectbox("Select Value for x-Axis:", cols)
         x = df[colx].values.tolist()
-        pivot = st.radio("Group by this axis", ["sum","count","do not group"])
+        pivot = st.radio("Group by this axis", ["sum","count","mean","do not group"])
         if pivot == "sum":
             grouped = df.groupby(colx).sum()
             st.write("aggfunc: [sum]")
@@ -65,12 +70,17 @@ def vis_q():
             st.write("aggfunc: [count]")
             grouped = grouped.sort_index()
             x = grouped.index.tolist()
+        elif pivot == "mean":
+            grouped = df.groupby(colx).mean()
+            st.write("aggfunc: [mean]")
+            grouped = grouped.sort_index()
+            x = grouped.index.tolist()
         else:
             x = df[colx].values.tolist()
         st.write("_____")
         colya = st.selectbox("Select Value for y-Axis (graph A):", cols)
         typea = st.selectbox("Select Plot Style (graph A)", style)
-        if pivot == "sum" or pivot == "count":
+        if pivot == "sum" or pivot == "count" or pivot == "mean":
             ya = grouped[colya].values.tolist()
         else:
             ya = df[colya].values.tolist()
