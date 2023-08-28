@@ -32,6 +32,10 @@ def vis_q():
     st.write("C2) Zeigen Sie den Durchschnitt der MPG & Horsepower für jedes Model Year")
     st.write("C3) Zeigen Sie den Durchschnitt der MPG & Horsepower für jede Zylinderklasse")
     st.write("C4) Zeigen Sie den Durchschnitt der MPG & Horsepower für jede Automarke")
+    st.write(" ")
+    st.write(" ")
+    st.write("D1) Öffnen Sie den Netflix-Datensatz (netflix_titles.csv)")
+    st.write("D2) Gehen wir zusammen durch :)")
     
 
     st.write("_____")
