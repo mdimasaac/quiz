@@ -107,6 +107,7 @@ def vis_q():
             y = ya,
             mode = "lines",name = colya
             )
+        st.write(df)
         try:
             data.append(trace1)
             fig = go.Figure(data = data)
@@ -114,6 +115,7 @@ def vis_q():
             autosize=True, height = 600
             )
             st.plotly_chart(fig, use_container_width=True)
+        
         except:
             pass
             # datanull = []
