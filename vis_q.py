@@ -115,10 +115,11 @@ def vis_q():
             )
             st.plotly_chart(fig, use_container_width=True)
         except:
-            datanull = []
-            st.error("Etwas ist schief gelaufen. Versuchen Sie, die Werte an den Achsen zu ändern.")
-            fig = go.Figure(data = datanull)
-            fig.update_layout(template="plotly_dark",
-            autosize=True, height = 600
-            )
-            st.plotly_chart(fig, use_container_width=True)
+            pass
+            # datanull = []
+            # st.error("Etwas ist schief gelaufen. Versuchen Sie, die Werte an den Achsen zu ändern.")
+            # fig = go.Figure(data = datanull)
+            # fig.update_layout(template="plotly_dark",
+            # autosize=True, height = 600
+            # )
+            # st.plotly_chart(fig, use_container_width=True)
